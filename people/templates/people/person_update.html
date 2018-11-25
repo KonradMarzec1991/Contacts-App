@@ -1,0 +1,37 @@
+{% extends "people/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="container" style="width: 75%">
+
+         <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Edit you contact</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <input class="btn btn-info" type="submit" value="Save">
+                    <a class="btn btn-default" href="{% url 'people:person-list' %}">Cancel</a>
+                </div>
+             </form>
+        </div>
+
+        <hr class="col-xs-12">
+        <div class="content-section" align="center">
+            <a href="{% url 'people:address_create' id=object.id %}">
+                <button type="button" class="btn btn-primary">Add Address</button>
+            </a>
+            <a href="{% url 'people:phone_create' id=object.id %}">
+                <button type="button" class="btn btn-success">Add Phone</button>
+            </a>
+            <a href="{% url 'people:email_create' id=object.id %}">
+                <button type="button" class="btn btn-warning">Add Email</button>
+            </a>
+        </div>
+
+    </div>
+
+{% endblock %}
