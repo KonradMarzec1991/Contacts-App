@@ -1,5 +1,4 @@
 # Contact App
-=============
 
 Testing application for managing group of your friends. Created for educational purposes. 
 Contains CRUD for group/users and basic functionality of user settings.
